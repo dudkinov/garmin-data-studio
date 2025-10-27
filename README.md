@@ -1,6 +1,9 @@
 **Live Demo:** [garmin-data-studio.streamlit.app](https://garmin-data-studio.streamlit.app)
----
+
+
 # Garmin Data Studio
+
+---
 
 ## Overview
 
