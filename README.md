@@ -2,7 +2,6 @@
 
 
 # Garmin Data Studio
-
 ---
 
 ## Overview
