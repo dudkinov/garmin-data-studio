@@ -80,7 +80,7 @@ with r2c1:
 with r2c2:
     nav_button("META Panel", "Composite season indexes", "pages/6_6_Meta_Pannel.py", "btn_meta")
 with r2c3:
-    nav_button("Plan & Track", "Plan and execution", "pages/7_7_Plan&Track_Next_Season.py", "btn_planning")
+    nav_button("Plan & Track", "Plan and execution", "pages/7_7_Plan_&_Track_Next_Season.py", "btn_planning")
 
 st.divider()
 st.caption("This landing page presents the business value, dataset, and architecture behind the project. Use the links above to dive into the analysis.")
