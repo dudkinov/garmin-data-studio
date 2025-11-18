@@ -1,4 +1,5 @@
 import streamlit as st
+import requests
 
 st.set_page_config(layout="wide", page_title="Garmin Data Studio", page_icon="📊")
 
@@ -36,21 +37,57 @@ with col_left:
     st.markdown(
         "- **Database (Cloud, live-updated):** PostgreSQL, SQLAlchemy\n"
         "- **ETL & Data Cleaning:** Python (Pandas, Numpy, FitDecode)\n"
-        "- **Visualization:** Streamlit, Matplotlib\n"
+        "- **Visualization:** Streamlit, Matplotlib, Power BI\n"
         "- **Infrastructure:** Neon (DB hosting)"
     )
 
 with col_right:
     st.subheader("🧷 GitHub Repository")
-    st.write("Source code for ETL (FIT → PostgreSQL), data model, and Streamlit dashboards.")
+    st.write("Source code (FIT → PostgreSQL), data model, Streamlit and PowerBI dashboards.")
     st.link_button("Open on GitHub ↗", "https://github.com/dudkinov/garmin-streamlit-analytics")
+
+st.divider()
+
+# ---------- Power BI Dashboards (Downloads) ----------
+st.subheader("📥 Power BI Dashboards")
+st.markdown(
+    "Structured Power BI dashboards built on a star-schema model with core DAX calculations and analytical views."
+)
+
+col1, col2 = st.columns(2, gap="large")
+
+with col1:
+    st.markdown("**Download PDF**")
+    pdf_url = "https://raw.githubusercontent.com/dudkinov/garmin-data-studio/main/PowerBI/pdf/Garmin_Power_BI.pdf"
+    pdf_bytes = requests.get(pdf_url).content
+
+    st.download_button(
+        label="Download Dashboard (PDF)",
+        data=pdf_bytes,
+        file_name="Garmin_Power_BI.pdf",
+        mime="application/pdf",
+        use_container_width=True
+    )
+
+with col2:
+    st.markdown("**Download PBIX**")
+    pbix_url = "https://raw.githubusercontent.com/dudkinov/garmin-data-studio/main/PowerBI/pbix/Garmin_Power_BI.pbix"
+    pbix_bytes = requests.get(pbix_url).content
+
+    st.download_button(
+        label="Download Dashboard (PBIX)",
+        data=pbix_bytes,
+        file_name="Garmin_Power_BI.pbix",
+        mime="application/octet-stream",
+        use_container_width=True
+    )
 
 st.divider()
 
 # ---------- Data Flow ----------
 st.subheader("🔗 Data Flow")
 st.markdown(
-    "Garmin Connect app → Garmin FIT files → ETL pipeline → PostgreSQL → Streamlit → Analytics"
+    "Garmin Connect app → Garmin FIT files → ETL pipeline → PostgreSQL → Streamlit + Power BI → Analytics"
 )
 
 st.divider()
